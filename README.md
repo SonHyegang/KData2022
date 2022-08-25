@@ -3,7 +3,7 @@
 
 
 
-> `The problems to be solved in this project are as follows. Fish (fish) with the camera function of the mobile
+> `The problems to be solved in this project are as follows. Fish with the camera function of the mobile
 when the picture was taken,`
 
 1️⃣ **Classify the fish in the picture**<br>
