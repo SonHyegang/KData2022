@@ -1,5 +1,6 @@
 # Fishchecker
-2022 데이터 청년 캠퍼스 고려대학교 빅데이터 기반의 지능정보시스템 개발 : Team 11
+**2022 데이터 청년 캠퍼스 고려대학교 빅데이터 기반의 지능정보시스템 개발 : Team 11**
+![image](https://user-images.githubusercontent.com/53131824/186707022-956ff170-4047-4f2d-b739-3f7a295451d1.png)
 
 
 
@@ -13,23 +14,27 @@ when the picture was taken,`
 >   `This project provides meaningful information to users based on fish species classification and weight prediction functions. Based on the mobile application service, users can conveniently Its purpose is to make it possible to obtain information.`
 
 
-### Development environment
-- [ ] EDA
-- [ ] System
+### Development Environment
+- [ ] EDA :
+- [ ] System : 
 
 
-
+## Repository List Description
 
 
 
 ## How to use
 
 
-## Results for some test cases
+## Results for some Test cases
 ### Colab version
 
 **_NOTE: 1_**
 ### PyQt5
+
+
+## 
+
 
 ## Algorithm
 
@@ -50,9 +55,11 @@ when the picture was taken,`
 
 
 
-## Contributor
+## Team members
 |Member|Contributions|Contact|
 |:-:|-------|-|
 
+
+## 도움주신 분들
 
 ![image](https://user-images.githubusercontent.com/53131824/186621158-785481bb-8d06-4c23-9b98-653a00c0f562.png)
