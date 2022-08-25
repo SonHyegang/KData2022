@@ -28,7 +28,7 @@ weighttable = {
     }
 
 def cal_fishTL(fishIL, bongIT):
-  fishTL  = int(fishIL) * 2.1 / bongIT #fishTL : bongIL = 실제 fishTL : 2.1
+  fishTL  = int(fishIL) * 2.01 / bongIT #fishTL : bongIL = 실제 fishTL : 2.01
   return fishTL
 
 def cal_weight(species, fishTL):
