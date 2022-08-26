@@ -20,5 +20,11 @@
 ### Weight Prediction
 
 ![image](https://user-images.githubusercontent.com/53131824/186889833-3580fb0b-3eee-4989-a09d-50747c0df5bb.png)
+
+<br>
+
 ![image](https://user-images.githubusercontent.com/53131824/186889906-d0e97f40-4d16-4892-a706-c192725363c1.png)
+
+<br>
+
 ![image](https://user-images.githubusercontent.com/53131824/186889941-5d501f3d-ac29-494a-a919-43392a9c4013.png)
