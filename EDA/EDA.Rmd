@@ -1,0 +1,414 @@
+---
+title: "eda"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+date: "2022-08-26"
+---
+
+
+An analysis of LWR data was conducted.
+
+
+```{r}
+fish = read.table("fish.txt", header=T,fileEncoding = "euc-kr")
+str(fish)
+head(fish)
+```
+
+
+```{r}
+fishsplit = split(fish, fish$종명)
+attach(fishsplit)
+go = 고등어
+nun = 눈볼대
+duck = 덕대
+myul = 멸치
+ban = 밴댕이
+bo = 보구치
+bul = 붉은메기
+sat = 샛멸
+sung = 성대
+jeon = 전갱이
+ju = 주둥치
+cham = 참돔
+hwangd = 황돔
+hwanga = 황아귀 
+```
+
+
+boxplot
+
+
+```{r message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(tidyverse)
+```
+
+
+```{r}
+fish %>% ggplot(aes(종명,TL)) + geom_jitter(col='dodgerblue4') + geom_boxplot(alpha=.8) + theme_classic()+ coord_flip()
+
+fish %>% ggplot(aes(종명,log(BW))) + geom_jitter(col='dodgerblue4') + geom_boxplot(alpha=.8) + theme_classic()+ coord_flip()+ labs(x="",y="log WW")
+```
+
+
+이제부터는 6가지 기준에 의하여 선정된 고등어, 눈볼대, 참돔, 성대 4종에 관하여 살펴보겠다.
+
+
+```{r}
+a = merge(go,cham,all=T)
+b = merge(a, nun,all=T)
+c = merge(b, sung, all=T)
+c %>% ggplot(aes(fct_reorder(종명, TL,.desc=T),TL)) + geom_jitter(col='dodgerblue4',alpha=0.28) + geom_boxplot(alpha=.5) + theme_classic()+ coord_flip() + labs(x="",y="TL")
+
+c %>% ggplot(aes(fct_reorder(종명, BW,.desc=T),log(BW))) + geom_jitter(col='dodgerblue4',alpha=0.28) + geom_boxplot(alpha=.5) + theme_classic()+ coord_flip() + labs(x="",y="log WW")
+```
+
+
+frequency polygon
+
+
+```{r}
+p1 <- go %>% ggplot(aes(TL)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic() + labs(title="Scomber japonicus")
+p2 <- nun %>% ggplot(aes(TL)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic() + labs(title="Doederleinia berycoides")
+p3 <- cham %>% ggplot(aes(TL)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic()+ labs(title="Pagrus major")
+p4 <- sung %>% ggplot(aes(TL)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic()+ labs(title="Chelidonichthys spinosus")
+grid.arrange(p1,p2,p3,p4,ncol=2)
+
+p1 <- go %>% ggplot(aes(BW)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic()+ labs(title="Scomber japonicus",x="WW")
+p2 <- nun %>% ggplot(aes(BW)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic()+ labs(title="Doederleinia berycoides",x="WW")
+p3 <- cham %>% ggplot(aes(BW)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic()+ labs(title="Pagrus major",x="WW")
+p4 <- sung %>% ggplot(aes(BW)) + geom_freqpoly(col="dodgerblue4",binwidth=30) + theme_classic()+ labs(title="Chelidonichthys spinosus",x="WW")
+grid.arrange(p1,p2,p3,p4,ncol=2)
+```
+
+
+kernel density estimator 
+
+
+```{r}
+p1 <- go %>% ggplot(aes(TL)) + geom_density(col="dodgerblue4") + theme_classic()+ labs(title="Scomber japonicus")
+p2 <- nun %>% ggplot(aes(TL)) + geom_density(col="dodgerblue4") + theme_classic()+ theme_classic()+ labs(title="Doederleinia berycoides")
+p3 <- cham %>% ggplot(aes(TL)) + geom_density(col="dodgerblue4") + theme_classic()+ theme_classic()+ labs(title="Pagrus major")
+p4 <- sung %>% ggplot(aes(TL)) + geom_density(col="dodgerblue4") + theme_classic()+ theme_classic()+ labs(title="Chelidonichthys spinosus")
+grid.arrange(p1,p2,p3,p4,ncol=2)
+
+p1 <- go %>% ggplot(aes(BW)) + geom_density(col="dodgerblue4") + theme_classic()+ labs(title="Scomber japonicus",x="WW")
+p2 <- nun %>% ggplot(aes(BW)) + geom_density(col="dodgerblue4") + theme_classic()+ theme_classic()+ labs(title="Doederleinia berycoides",x="WW")
+p3 <- cham %>% ggplot(aes(BW)) + geom_density(col="dodgerblue4") + theme_classic()+ theme_classic()+ labs(title="Pagrus major",x="WW")
+p4 <- sung %>% ggplot(aes(BW)) + geom_density(col="dodgerblue4") + theme_classic()+ theme_classic()+ labs(title="Chelidonichthys spinosus",x="WW")
+grid.arrange(p1,p2,p3,p4,ncol=2)
+```
+
+
+scatterplot 
+
+
+```{r}
+par(mfrow=c(2,2))
+plot(go$TL ,go$BW, xlab="TL", ylab="WW", pch=19, cex=0.7,main="Scomber japonicus")
+plot(nun$TL ,nun$BW, xlab="TL", ylab="WW", pch=19, cex=0.7,main="Doederleinia berycoides")
+plot(cham$TL ,cham$BW, xlab="TL", ylab="WW", pch=19, cex=0.7,main="Pagrus major")
+plot(sung$TL ,sung$BW, xlab="TL", ylab="WW", pch=19, cex=0.7,main="Chelidonichthys spinosus")
+```
+
+
+지금까지 데이터의 전체적인 분포를 살펴보았다. 이제부터는 모델 적합에 관하여 살펴보겠다. 
+
+
+## linear regression 
+
+
+```{r}
+fit_go = lm(log(BW)~log(TL), data=go)
+summary(fit_go)
+```
+
+log a = -5.24566, b = 3.12579, R-squared : 0.9725
+
+
+outlier 검토
+
+
+```{r message=FALSE, warning=FALSE}
+# Scomber japonicus
+go2 <- go
+par(mfrow=c(1,2))
+boxplot(go2$TL,main="TL",col="dodgerblue4")
+boxplot(go2$BW,main="WW",col="dodgerblue4") 
+
+boxplot.stats(go2$BW)$out 
+boxplot.stats(go2$TL)$out 
+
+out.val <- boxplot.stats(go2$BW)$out
+go2$BW[go2$BW %in% out.val] <- NA
+go2 <- go2[complete.cases(go2),]
+
+out.val <- boxplot.stats(go2$TL)$out
+go2$TL[go2$TL %in% out.val] <- NA
+go2 <- go2[complete.cases(go2),]
+
+boxplot(go2$TL, horizontal=F,main="TL",col="dodgerblue4")
+boxplot(go2$BW, horizontal=F,main="BW", col="dodgerblue4")
+ 
+dev.off()
+plot(log(go2$TL),log(go2$BW),xlab="log TL",ylab="log WW",main="Scomber japonicus",pch=19,cex=0.7,col="gray48")
+abline(lm(log(go2$BW)~log(go2$TL)), col="dodgerblue4",lwd=2,pch=19,cex=0.8)
+```
+```{r}
+summary(lm(log(go2$BW)~log(go2$TL)))
+```
+
+특이값(치어)을 제거한 결과 결정계수가 0.8944로 낮아짐을 확인할 수 있다.  
+
+
+## parametric regression vs non-parametric regression
+
+
+```{r message=FALSE, warning=FALSE}
+# example : Scomber japonicus TL = 8.1 
+# lowess curve 
+library(msir)
+low_go <- loess.sd(go$TL,go$BW, nsigma = 1.96)
+plot(go$TL,go$BW,xlab="TL",ylab="WW",pch=19,cex=0.7,col="gray48",main="Scomber japonicus")
+lines(low_go$x, low_go$y)
+lines(low_go$x, low_go$upper, lty="dashed",col="dodgerblue4",lwd=2)
+lines(low_go$x, low_go$lower, lty="dashed",col="dodgerblue4",lwd=2)
+# confidence interval for lowess 
+golow = loess(BW~TL,data=go)
+plx <- predict(golow, newdata = data.frame(TL=21), se=T)
+lowe_fit <- c(plx$fit)
+lowe_lwr <- c(plx$fit - qt(0.975,plx$df)*plx$se)
+lowe_upr <- c(plx$fit + qt(0.975,plx$df)*plx$se)
+lowe_conf <- data.frame(lowe_fit,lowe_lwr,lowe_upr)
+lowe_conf
+# confidence interval for linear regression
+exp(predict(fit_go, newdata = data.frame(TL=21), interval="confidence")) 
+```
+
+
+lowess가 linear regression보다 더 큰 신뢰구간을 보인다. 또한 linear regression 결과 적합이 잘 된 것을 확인할 수 있으므로 체장-체중 데이터에 대한 linear regression을 수행한다.
+
+
+## linear regression with ANOVA
+
+
+*Scomber japonicus*
+
+
+```{r}
+fit_go = lm(log(BW)~log(TL), data=go)
+summary(fit_go)
+
+anova(fit_go)
+```
+
+log a = -5.24566, b = 3.12579, R-squared : 0.9725
+
+
+*Doederleinia berycoides*
+
+
+```{r}
+fit_nun = lm(log(BW)~log(TL), data=nun)
+summary(fit_nun)
+
+anova(fit_nun)
+```
+
+log a = -4.13102, b = 2.92819, R-squared : 0.9441
+
+
+*Pagrus major*
+
+
+```{r}
+fit_cham = lm(log(BW)~log(TL), data=cham)
+summary(fit_cham)
+
+anova(fit_cham)
+```
+
+log a = -3.59768, b = 2.81910, R-squared : 0.988
+
+
+*Chelidonichthys spinosus*
+
+
+```{r}
+fit_sung = lm(log(BW)~log(TL), data=sung)
+summary(fit_sung)
+
+anova(fit_sung)
+```
+log a = -4.04875, b = 2.79160, R-squared : 0.9824
+
+
+## confidence interval and prediction interval 
+
+
+*Scomber japonicus*
+
+
+```{r message=FALSE, warning=FALSE}
+go$pred.lwr<-predict(fit_go, interval="prediction")[,2]
+go$pred.upr<-predict(fit_go, interval="prediction")[,3]
+go$conf.lwr<-predict(fit_go, interval="confidence")[,2] 
+go$conf.upr<-predict(fit_go, interval="confidence")[,3]
+z = seq(0, 33.3, length = 194)
+coef = fit_go$coefficients
+ahat = coef[1]
+bhat = coef[2]
+ggplot(data = go,aes(x=TL,y=BW))+
+  geom_point(col="gray48")+ theme_classic()+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.2)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  scale_x_log10() + scale_y_log10()+ labs(x="log TL",y="log WW",title="Scomber japonicus")
+
+z = seq(0, 33.3, length = 194)
+coef = fit_go$coefficients
+ahat = exp(coef[1])
+bhat = coef[2]
+
+go$pred.lwr<-predict(fit_go, interval="prediction")[,2]
+go$pred.upr<-predict(fit_go, interval="prediction")[,3]
+go$conf.lwr<-predict(fit_go, interval="confidence")[,2] 
+go$conf.upr<-predict(fit_go, interval="confidence")[,3]
+
+ggplot(data = go, aes(TL,BW)) + geom_point(col="gray48")+ 
+  theme_classic()+ labs(x="TL",y="WW",title="Scomber japonicus")+
+  geom_line(aes(z, ahat*z^(bhat)),col="black",size=0.8)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.3)
+```
+
+
+*Doederleinia berycoides*
+
+
+```{r message=FALSE, warning=FALSE}
+nun$pred.lwr<-predict(fit_nun, interval="prediction")[,2]
+nun$pred.upr<-predict(fit_nun, interval="prediction")[,3]
+nun$conf.lwr<-predict(fit_nun, interval="confidence")[,2] 
+nun$conf.upr<-predict(fit_nun, interval="confidence")[,3]
+
+coef = fit_nun$coefficients
+ahat = coef[1]
+bhat = coef[2]
+
+ggplot(data = nun,aes(x=TL,y=BW))+ 
+  geom_point(col="gray48")+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.2)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  scale_x_log10() + scale_y_log10() + theme_classic() +labs(x="log TL",y="log WW",title="Doederleinia berycoides")
+
+z = seq(0, 30.5, length = 694)
+coef = fit_nun$coefficients
+ahat = exp(coef[1])
+bhat = coef[2]
+
+nun$pred.lwr<-predict(fit_nun, interval="prediction")[,2]
+nun$pred.upr<-predict(fit_nun, interval="prediction")[,3]
+nun$conf.lwr<-predict(fit_nun, interval="confidence")[,2] 
+nun$conf.upr<-predict(fit_nun, interval="confidence")[,3]
+
+ggplot(data = nun, aes(TL,BW)) + geom_point(col="gray48")+ 
+  theme_classic()+ labs(x="TL",y="WW",title="Doederleinia berycoides")+
+  geom_line(aes(z, ahat*z^(bhat)),col="black",size=0.8)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.3)
+```
+
+
+*Pagrus major*
+
+
+```{r message=FALSE, warning=FALSE}
+cham$pred.lwr<-predict(fit_cham, interval="prediction")[,2]
+cham$pred.upr<-predict(fit_cham, interval="prediction")[,3]
+cham$conf.lwr<-predict(fit_cham, interval="confidence")[,2] 
+cham$conf.upr<-predict(fit_cham, interval="confidence")[,3]
+
+z = seq(0, 30.5, length = 66)
+coef = fit_cham$coefficients
+ahat = coef[1]
+bhat = coef[2]
+
+ggplot(data = cham,aes(x=TL,y=BW))+ 
+  geom_point(col="gray48")+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.2)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  scale_x_log10() + scale_y_log10() + theme_classic() +labs(x="log TL",y="log WW",title="Pagrus major")
+
+z = seq(0, 49.3, length = 66)
+coef = fit_cham$coefficients
+ahat = exp(coef[1])
+bhat = coef[2]
+cham$pred.lwr<-predict(fit_cham, interval="prediction")[,2]
+cham$pred.upr<-predict(fit_cham, interval="prediction")[,3]
+cham$conf.lwr<-predict(fit_cham, interval="confidence")[,2] 
+cham$conf.upr<-predict(fit_cham, interval="confidence")[,3]
+ggplot(data = cham, aes(TL,BW)) + geom_point(col="gray48")+ 
+  theme_classic()+ labs(x="TL",y="WW",title="Pagrus major")+
+  geom_line(aes(z, ahat*z^(bhat)),col="black",size=0.8)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.3)
+```
+
+
+*Chelidonichthys spinosus*
+
+
+```{r message=FALSE, warning=FALSE}
+sung$pred.lwr<-predict(fit_sung, interval="prediction")[,2]
+sung$pred.upr<-predict(fit_sung, interval="prediction")[,3]
+sung$conf.lwr<-predict(fit_sung, interval="confidence")[,2] 
+sung$conf.upr<-predict(fit_sung, interval="confidence")[,3]
+
+coef = fit_sung$coefficients
+ahat = coef[1]
+bhat = coef[2]
+
+ggplot(data = sung,aes(x=TL,y=BW))+ 
+  geom_point(col="gray48")+ labs(x="log TL",y="log WW",title="Chelidonichthys spinosus")+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.2)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  scale_x_log10() + scale_y_log10() + theme_classic()
+
+z = seq(0, 32.5, length = 57)
+coef = fit_sung$coefficients
+ahat = exp(coef[1])
+bhat = coef[2]
+
+sung$pred.lwr<-predict(fit_sung, interval="prediction")[,2]
+sung$pred.upr<-predict(fit_sung, interval="prediction")[,3]
+sung$conf.lwr<-predict(fit_sung, interval="confidence")[,2] 
+sung$conf.upr<-predict(fit_sung, interval="confidence")[,3]
+
+ggplot(data = sung, aes(TL,BW)) + geom_point(col="gray48")+ 
+  theme_classic()+ labs(x="TL",y="WW",title="Chelidonichthys spinosus")+
+  geom_line(aes(z, ahat*z^(bhat)),col="black",size=0.8)+
+  geom_line(aes(y=exp(pred.lwr)),col="dodgerblue4",linetype="dashed",size=1.2)+ 
+  geom_line(aes(y=exp(pred.upr)),col="dodgerblue4",linetype="dashed",size=1.2)+
+  geom_ribbon(aes(ymin=exp(conf.lwr),ymax=exp(conf.upr)),fill="dodgerblue4",alpha=0.3)
+```
+
+
+prediction example
+
+
+```{r}
+exp(predict(fit_go, newdata = data.frame(TL=25), interval="prediction")) 
+```
