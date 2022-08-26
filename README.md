@@ -41,11 +41,11 @@ when the picture was taken,`
 ### PyQt5 UI
 1. Install the codec from the link below for smooth execution in the video execution stage of the UI
 
-https://codecguide.com/download_kl.htm 
+   https://codecguide.com/download_kl.htm 
 
 2. Download the EXE file and run it
 
-***NOTE: Please make sure that all paths do not contain Korean characters.***
+   ***NOTE: Please make sure that all paths do not contain Korean characters.***
 
 3. If you want to directly create and run the executable file or run main.py directly from the shell, please match the versions of the packages you need.
 ```
