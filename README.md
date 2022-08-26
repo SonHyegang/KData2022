@@ -112,8 +112,7 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 
 
 
-***NOTE: Algorithm에 대한 detail은 https://github.com/SonHyegang/KData2022_Fishchecker/tree/main/Fishchecker%20Colab 
-에서 확인하실 수 있습니다***
+***NOTE: Algorithm에 대한 detail은 https://github.com/SonHyegang/KData2022_Fishchecker/tree/main/Fishchecker%20Colab 에서 확인하실 수 있습니다***
 
 
 
