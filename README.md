@@ -71,6 +71,10 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 ![2](https://user-images.githubusercontent.com/53131824/186847271-7b9dbe93-06b5-41c4-8009-df8edd7c97ef.png)
 
 
+## EDA
+***NOTE: EDA에 대한 detail은 https://github.com/SonHyegang/KData2022_Fishchecker/tree/main/EDA
+에서 확인하실 수 있습니다***
+
 
 ## Algorithm
 ![image](https://user-images.githubusercontent.com/109898791/186849435-10d466fe-e003-473a-8ab8-bccb6d83bc4a.png)
