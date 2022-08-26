@@ -87,7 +87,7 @@ def run():
     _lines.sort(key=lambda x:int(x[4]), reverse = False)
 
     bongIT = int(_lines[0][4])
-    fishTL = int(fishIL) * 2.01 / bongIT #fishTL : bongIL = 실제 fishTL : 2.01
+    fishTL = int(fishIL) * 2.1 / bongIT #fishTL : bongIL = 실제 fishTL : 2.1
 
   
     f = open("xyxy.txt", 'w')
