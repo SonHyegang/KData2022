@@ -87,16 +87,6 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 
 
 
-## Main issues discussed
-### Development Technical Documentation
-
-### Meeting Record
-
-
-
-## Development Timeline
-
-
 
 
 ## Team members
