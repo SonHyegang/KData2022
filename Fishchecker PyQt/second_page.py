@@ -393,7 +393,6 @@ class Second(QWidget):
       'O' : [0,0]
     }
     print(l)
-    #w = 0.005 * (Double(l) ** 3.126)
     w = float(weighttable[s][0])*(float(l)**float(weighttable[s][1])) # if weighttable[s] is not None else '무게 예측 불가'
     print(w)
     return w
