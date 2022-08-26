@@ -59,11 +59,16 @@ python -m pip install -r requirements.txt
 
 https://user-images.githubusercontent.com/53131824/186845531-4f5c8a3e-c8f8-413a-a236-5a4ba2719c58.mp4
 
+![image](https://user-images.githubusercontent.com/53131824/186847162-3b6b54e1-217e-47d0-9c85-26ad55dc215f.png)
 
 
 ### PyQt5 UI
 
 
+https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-9b1f-6f26fbbb896c.mp4
+
+![1](https://user-images.githubusercontent.com/53131824/186847252-fd7714b1-4983-489b-bf6f-22da0507f2d9.png)
+![2](https://user-images.githubusercontent.com/53131824/186847271-7b9dbe93-06b5-41c4-8009-df8edd7c97ef.png)
 
 
 
