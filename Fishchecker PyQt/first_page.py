@@ -31,7 +31,7 @@ class First(QMainWindow):
     title.setFont(title_font)
     title.setStyleSheet("color: white;")
     
-    #logo #왜 안 들어가는건지...
+    #logo
     #image = QPixmap('./fishchecker.PNG')
     #logo = QLabel()
     #logo.setPixmap(image)
