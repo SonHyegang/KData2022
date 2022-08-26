@@ -104,7 +104,7 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 |임정아|||
 |황영석|||
 
-**최종 시연을 위한 v16_best.pt, bong_v5_best.pt file외 중간산출물들은 장시간 training과 tuning의 결과물이란 점, 용량제한 문제점으로 인해 Github repository에서 공개하고 있지 않습니다. 필요하신 분들은 Team members table의 contact mail로 연락주시기 바랍니다.**
+**최종 시연을 위한 v16_best.pt, bong_v5_best.pt file외 중간산출물과 raw data들은 장시간 data 수집과 training, tuning의 결과물이란 점, 용량제한 문제점으로 인해 Github repository에서 공개하고 있지 않습니다. 필요하신 분들은 Team members table의 contact mail로 연락주시기 바랍니다.**
 
 ## 도움주신 분들
 
