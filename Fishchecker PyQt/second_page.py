@@ -382,9 +382,6 @@ class Second(QWidget):
 
   def cal_weight(self):
     print("Cal_weight...")
-    s = 'G'
-    l = str(31.91)
-    print(s, l)
 
     weighttable = {
       'C' : [0.027, 2.819],
@@ -396,8 +393,8 @@ class Second(QWidget):
       'O' : [0,0]
     }
     print(l)
-    w = 0.005 * (Double(l) ** 3.126)
-    #w = float(weighttable[s][0])*(float(l)**float(weighttable[s][1])) # if weighttable[s] is not None else '무게 예측 불가'
+    #w = 0.005 * (Double(l) ** 3.126)
+    w = float(weighttable[s][0])*(float(l)**float(weighttable[s][1])) # if weighttable[s] is not None else '무게 예측 불가'
     print(w)
     return w
 
