@@ -73,7 +73,7 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 
 
 ## Algorithm
-![image](https://user-images.githubusercontent.com/53131824/186847907-48b84781-fdfc-442f-95ea-3cc11df2d032.png)
+![image](https://user-images.githubusercontent.com/109898791/186849435-10d466fe-e003-473a-8ab8-bccb6d83bc4a.png)
 
 - Frame sampling : Input video data 30fps로 frame 추출하여 image data로 변환
 - Classification & Object detection : Model Selection Realtime application으로 발전가능성을 고려하여 model selection 과정에서 높은 FPS 조건을 부여한 결과 속도, 성능을 고려해 YOLO V7 선정
