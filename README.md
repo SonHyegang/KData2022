@@ -132,5 +132,9 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 <br>
 
 ## 도움주신 분들
+한국수산회 수산정책연구소 소장님
+해양수산부 운영지원과 관계자
+노량진수산물도매시장 경영기획부 관계자
+
 
 ![image](https://user-images.githubusercontent.com/53131824/186621158-785481bb-8d06-4c23-9b98-653a00c0f562.png)
