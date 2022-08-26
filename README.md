@@ -25,7 +25,7 @@ when the picture was taken,`
 
 ## How to use
 ### Colab
-***NOTE: PyQt5 UI는 사용환경에 따라 실행시간이 길 수 있습니다. 또한 영상실행 단계에서 코덱 issue가 발생할 수 있어 fishChcker algorithm 결과확인을 보장하기 위해 Colab test version를 지원하고 있습니다.***
+***NOTE: PyQt5 UI는 사용환경에 따라 실행시간에 차이가 클 수 있습니다. 또한 영상실행 단계에서 코덱 issue가 발생할 수 있어 fishChcker algorithm 결과를 어떤 사용환경에서도 확인해보실 수 있도록 Colab test version를 지원하고 있습니다.***
 
 1. Download the ZIP file from the link below
 
