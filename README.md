@@ -75,12 +75,11 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 ## Algorithm
 ![image](https://user-images.githubusercontent.com/109898791/186849435-10d466fe-e003-473a-8ab8-bccb6d83bc4a.png)
 
-- Frame sampling : Input video data 30fps로 frame 추출하여 image data로 변환
-- Classification & Object detection : Model Selection Realtime application으로 발전가능성을 고려하여 model selection 과정에서 높은 FPS 조건을 부여한 결과 속도, 성능을 고려해 YOLO V7 선정
-- 
 
 
-**_NOTE: 2_**
+
+***NOTE: Algorithm에 대한 detail은 https://github.com/SonHyegang/KData2022_Fishchecker/tree/main/Fishchecker%20Colab 
+에서 확인하실 수 있습니다***
 
 
 
