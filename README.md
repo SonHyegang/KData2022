@@ -24,12 +24,22 @@ when the picture was taken,`
 
 
 ## How to use
+### PyQt5
 
+### Colab
+**_NOTE: PyQt5 UI는 테스터님들의 사용환경에 따라 실행시간이 길 수 있습니다. 또한 영상실행 단계에서 코덱 issue가 발생할 수 있어 테스터님들의 fishChcker algorithm 결과확인을 보장하기 위해 Colab test version를 지원하고 있습니다. _**
+1. Download the ZIP file from the link below
+
+https://drive.google.com/file/d/1ixf9Td-opkCBDDwDRdwEQicY2Ljvy700/view?usp=sharing 
+2. Unzip the downloaded file and upload it to My Drive in Google Drive.
+![image](https://user-images.githubusercontent.com/53131824/186811130-f654b789-4300-46c5-be22-9e97bd15c3e5.png)
+
+3. For faster execution, change the runtime type to GPU and run all shells
 
 ## Results for some Test cases
 ### Colab version
 
-**_NOTE: 1_**
+
 ### PyQt5
 
 
