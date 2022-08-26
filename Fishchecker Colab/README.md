@@ -1,9 +1,21 @@
 # Algorithm
-### Pipeline
+## Pipeline
 ![image](https://user-images.githubusercontent.com/53131824/186889605-4dca876c-bc25-4c5a-91fb-9b179ed730d8.png)
+
+
+<br>
+<br>
+<br>
 
 ### Classification & Object Detection
 ![image](https://user-images.githubusercontent.com/53131824/186889740-35122626-05f1-451e-9ff2-86866e288d86.png)
+
+
+
+<br>
+<br>
+<br>
+
 
 ### Weight Prediction
 
