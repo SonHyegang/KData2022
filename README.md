@@ -110,6 +110,10 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 ## Algorithm
 ![image](https://user-images.githubusercontent.com/109898791/186849435-10d466fe-e003-473a-8ab8-bccb6d83bc4a.png)
 
+***NOTE: Algorithm에 대한 detail은 https://github.com/SonHyegang/KData2022_Fishchecker/tree/main/Fishchecker%20Colab 에서 확인하실 수 있습니다***
+
+<br>
+
 ### Future Direction of Algorithm Time Complexity Improvement
 - It was intended to intuitively express that the process of predicting weight through the brute force algorithm is realistically possible > If we add the step of narrowing the range of rotation angle by looking at the aspect ratio of the bounding box, there is no need to look at all -90 to 90 degrees.
 - The model load is carried out 3 times, but this can be reduced to 2  (because the model used in the process of selecting the bestframe and the process of finding the length of the fish in the bestframe is the same)
@@ -118,7 +122,7 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 
 
 
-***NOTE: Algorithm에 대한 detail은 https://github.com/SonHyegang/KData2022_Fishchecker/tree/main/Fishchecker%20Colab 에서 확인하실 수 있습니다***
+
 
 
 
