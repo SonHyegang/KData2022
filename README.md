@@ -10,8 +10,9 @@
     + [PyQt5 UI](#pyqt5-ui-1)
   * [EDA](#eda)
   * [Algorithm](#algorithm)
+    + [Future Direction of Algorithm Time Complexity Improvement](#future-direction-of-algorithm-time-complexity-improvement)
   * [Team members](#team-members)
-  * [도움주신 분들](#-------)
+  * [도움주신 분들](#도움주신 분들)
 
 <br>
 <br>
