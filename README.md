@@ -116,9 +116,10 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 
 ### Future Direction of Algorithm Time Complexity Improvement
 - It was intended to intuitively express that the process of predicting weight through the brute force algorithm is realistically possible > If we add the step of narrowing the range of rotation angle by looking at the aspect ratio of the bounding box, there is no need to look at all -90 to 90 degrees.
-- The model load is carried out 3 times, but this can be reduced to 2  (because the model used in the process of selecting the bestframe and the process of finding the length of the fish in the bestframe is the same)
+- The model load is carried out 3 times, but this can be reduced to 2  (Because the model used in the process of selecting the bestframe and the process of finding the length of the fish in the bestframe is the same)
 - Since the length of the video used for the demo is 5 seconds, we calculated quite a lot of frames. Considering the cycle of flopping of live fish, it is judged that the weight can be predicted sufficiently even with an image for 1 to 2 seconds.
-- Process after selecting the bestframe (finding the length of the fish in the bestframe, finding the thickness of the handle in the bestframe) parallel processing
+- Process after selecting the bestframe  (finding the length of the fish in the bestframe, finding the thickness of the handle in the bestframe) parallel processing
+- Reparameterization  (Before reparameterization, the model has more parameters and computation cost.)
 
 
 
