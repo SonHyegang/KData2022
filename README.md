@@ -133,7 +133,7 @@ https://user-images.githubusercontent.com/53131824/186846835-744303e4-cb83-41a8-
 |Member|Contributions|Contact|
 |:-:|-------|-|
 |김지나|||
-|손혜강|||
+|손혜강||oss67820@korea.ac.kr|
 |윤세정|||
 |임정아|||
 |황영석|||
